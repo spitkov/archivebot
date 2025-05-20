@@ -16,7 +16,7 @@ async function handleDownloadCommand(interaction) {
     await interaction.deferReply({ephemeral: false}); 
 
     const fakeMessage = {
-        content: `/${interaction.commandName} ${finalUrl}`.trim(),
+        content: finalUrl,
         author: interaction.user,
         channel: interaction.channel,
         channelId: interaction.channelId,
