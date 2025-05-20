@@ -69,7 +69,7 @@ async function attemptDiscordFallbackLink(targetChannel, originalMessage, fileIn
         try {
             const prevErrorMessage = previousError ? (typeof previousError === 'string' ? previousError : previousError.message) : '' ;
             const archiveMessage = await targetChannel.send(
-                `Eredeti üzenet: ${originalMessage.url || `https://discord.com/channels/${originalMessage.guildId}/${originalMessage.channelId}/${originalMessage.id}`}${fileIndexStr}\nSikertelen Discord feltöltés${prevErrorMessage ? ` (${prevErrorMessage})` : ''}. Alternatív link (${fallbackService}): ${fallbackUrl}`
+                `Eredeti üzenet: ${originalMessage.url || `https://discord.com/channels/${originalMessage.guildId}/${originalMessage.channelId}/${originalMessage.id}`}${fileIndexStr}\nDiscordra túl nagy, ezért: (${fallbackService}): ${fallbackUrl}`
             );
             console.log(`[DEBUG][DiscordUploader] Fallback link posted to Discord: ${archiveMessage.url}`);
             return { success: true, url: archiveMessage.url, usedFallback: true, fallbackService: fallbackService, service: `Discord (fallback ${fallbackService})${fileIndexStr || ''}` };
